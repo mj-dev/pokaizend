@@ -88,7 +88,7 @@ return [
         'api_poke' => [
             'type'  => 'Segment',
             'options' => [
-                'route' => '/api/pokemon[/:id]',
+                'route' => '/api/pokemon[/:id][/:name]',
                 'defaults' => [
                     'controller' => 'Pokemon\Controller\Api'
                 ]

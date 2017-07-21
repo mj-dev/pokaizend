@@ -15,11 +15,31 @@ if ($nationalIdLen == 1) {
   <i class="glyphicon glyphicon-pencil"></i> Modifier
 </a>
 <a class="btn btn-danger" href="<?php echo $this->url('pokemon_delete', ['pokemonId' => $pokemon->getId()]) ;?>">
-  <i class="glyphicon glyphicon-remove"></i> supprimer
+  <i class="glyphicon glyphicon-remove"></i> Supprimer
 </a>
 <hr />
 <div class="row">
   <div class="col-md-12">
+    National id : <?php echo nl2br($this->escapeHtml($pokemon->getNationalId())); ?>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
     <?php echo nl2br($this->escapeHtml($pokemon->getDescription())); ?>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    Type1 id : <?php echo nl2br($this->escapeHtml($pokemon->getType1())); ?>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    Type2 id : <?php echo nl2br($this->escapeHtml($pokemon->getType2())); ?>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    Evolution : <?php echo nl2br($this->escapeHtml($pokemon->getEvolution())); ?>
   </div>
 </div>
