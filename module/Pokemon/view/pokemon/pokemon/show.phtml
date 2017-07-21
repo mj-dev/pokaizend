@@ -1,25 +1,28 @@
-<?php
-$pokemon = $this->pokemon;
-// Fix for get pokemon img
-(string)$nationalId = $pokemon->getNationalId();
-$nationalIdLen = (strlen($nationalId));
-if ($nationalIdLen == 1) {
-  $nationalId = "00".$nationalId;
-} elseif($nationalIdLen == 2){
-  $nationalId = "0".$nationalId;
-}
-?>
-<img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/<?php echo $nationalId ?>.png" alt="">
-<h1><?php echo $this->escapeHtml($pokemon->getName()); ?></h1>
-<a class="btn btn-primary" href="<?php echo $this->url('pokemon_edit', ['pokemonId' => $pokemon->getId()]); ?>">
-  <i class="glyphicon glyphicon-pencil"></i> Modifier
-</a>
-<a class="btn btn-danger" href="<?php echo $this->url('pokemon_delete', ['pokemonId' => $pokemon->getId()]) ;?>">
-  <i class="glyphicon glyphicon-remove"></i> supprimer
-</a>
-<hr />
-<div class="row">
-  <div class="col-md-12">
-    <?php echo nl2br($this->escapeHtml($pokemon->getDescription())); ?>
+<div class="container">
+  <?php
+  $pokemon = $this->pokemon;
+  // Fix for get pokemon img
+  (string)$nationalId = $pokemon->getNationalId();
+  $nationalIdLen = (strlen($nationalId));
+  if ($nationalIdLen == 1) {
+    $nationalId = "00".$nationalId;
+  } elseif($nationalIdLen == 2){
+    $nationalId = "0".$nationalId;
+  }
+  ?>
+  <img class='materialboxed' src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/<?php echo $nationalId ?>.png" alt="">
+  <h1><?php echo $this->escapeHtml($pokemon->getName()); ?></h1>
+  <a class="btn btn-primary" href="<?php echo $this->url('pokemon_edit', ['pokemonId' => $pokemon->getId()]); ?>">
+    <i class="glyphicon glyphicon-pencil"></i> Modifier
+  </a>
+  <a class="btn btn-danger" href="<?php echo $this->url('pokemon_delete', ['pokemonId' => $pokemon->getId()]) ;?>">
+    <i class="glyphicon glyphicon-remove"></i> supprimer
+  </a>
+  <hr />
+  <div class="row">
+    <div class="col-md-12">
+      <?php echo nl2br($this->escapeHtml($pokemon->getDescription())); ?>
+    </div>
   </div>
+
 </div>

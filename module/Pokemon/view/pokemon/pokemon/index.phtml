@@ -1,31 +1,32 @@
-<h3>Pokemon</h3>
-<a class="btn btn-success" href="<?php echo $this->url("pokemon_add"); ?>">Ajouter un Pokémon</a>
+<div class="container">
+  <h3>Pokemons</h3>
 
-<?php if (!empty($this->pokemons)) : ?>
-    <?php foreach ($this->pokemons as $pokemon) : ?>
-        <hr />
-        <div class="row">
-            <div class="col-md-5">
-                <strong>
-                    <a href="<?php echo $this->url(
-                      'pokemon_show', [
-                        'pokemonName' => $pokemon->getName()
-                      ]); ?>">
-                      <?php echo $this->escapeHtml($pokemon->getName()); ?>
-                    </a>
-                </strong>
-            </div>
-        </div>
-    <?php endforeach; ?>
-<?php else : ?>
-    <div>Aucun Pokémon à afficher</div>
-<?php endif; ?>
-<hr />
-<?php
-    echo $this->paginationControl(
-      $this->pokemons,
-      'Sliding',
-      'partial/pagination',
-      ['route' => 'pokemon_home/paged']
-    );
-?>
+  <div class="row">
+    <div class="collection">
+    <?php if (!empty($this->pokemons)) : ?>
+        <?php foreach ($this->pokemons as $pokemon) : ?>
+
+                      <a class='collection-item' href="<?php echo $this->url(
+                        'pokemon_show', [
+                          'pokemonName' => $pokemon->getName()
+                        ]); ?>">
+                        <?php echo $this->escapeHtml($pokemon->getName()); ?>
+                      </a>
+
+        <?php endforeach; ?>
+    <?php else : ?>
+        <div>Aucun Pokémon à afficher</div>
+    <?php endif; ?>
+    </div>
+    <a class="waves-effect waves-light btn" href="<?php echo $this->url("pokemon_add"); ?>">Ajouter un Pokémon</a>
+  </div>
+
+    <?php
+        echo $this->paginationControl(
+          $this->pokemons,
+          'Sliding',
+          'partial/pagination',
+          ['route' => 'pokemon_home/paged']
+        );
+    ?>
+</div>

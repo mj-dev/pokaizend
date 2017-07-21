@@ -1,28 +1,51 @@
-<h3>Création d'un Pokémon</h3>
+<div class="row">
+  <h3>Création d'un Pokémon</h3>
+</div>
+  <div class="row">
+    <?php
+      $form = $this->form;
+      $form->prepare();
+      $form->setAttribute('class','col s12');
+      echo $this->form()->openTag($form);
+    ?>
+    <div class="row">
+      <div class="input-field col s12">
+        <?php echo $this->formRow($form->get('national_id')); ?>
+        <
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <?php echo $this->formRow($form->get('name')); ?>
+        <label>Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <?php echo $this->formRow($form->get('description')); ?>
+        <label>Description</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <?php echo $this->formRow($form->get('type1')); ?>
+        <label>Type 1</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <?php echo $this->formRow($form->get('type2')); ?>
+        <label>Type 2</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <?php echo $this->formRow($form->get('evolution')); ?>
+        <label>Evolution</label>
+      </div>
+    </div>
 
-<?php
-  $form = $this->form;
-  $form->prepare();
-  echo $this->form()->openTag($form);
-?>
-<div class="form-group">
-  <?php echo $this->formRow($form->get('national_id')); ?>
-</div>
-<div class="form-group">
-  <?php echo $this->formRow($form->get('name')); ?>
-</div>
-<div class="form-group">
-  <?php echo $this->formRow($form->get('description')); ?>
-</div>
-<div class="form-group">
-  <?php echo $this->formRow($form->get('type1')); ?>
-</div>
-<div class="form-group">
-  <?php echo $this->formRow($form->get('type2')); ?>
-</div>
-<div class="form-group">
-  <?php echo $this->formRow($form->get('evolution')); ?>
-</div>
+    <?php echo $this->formSubmit($form->get('submit')); ?>
+    <?php echo $this->form()->closeTag(); ?>
 
-<?php echo $this->formSubmit($form->get('submit')); ?>
-<?php echo $this->form()->closeTag(); ?>
+  </div>

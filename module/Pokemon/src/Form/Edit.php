@@ -21,33 +21,25 @@ class Edit extends Form
      $id = new Element\Hidden('id');
 
       $national_id = new Element\Number('national_id');
-      $national_id->setLabel('ID National');
-      $national_id->setAttribute('class', 'form-control');
+      $national_id->setAttribute('class', 'validate');
 
       $name = new Element\Text('name');
-      $name->setLabel('Nom');
-      $name->setAttribute('class', 'form-control');
+      $name->setAttribute('class', 'validate');
 
       $description = new Element\Textarea('description');
-      $description->setLabel('Description');
-      $description->setAttribute('class', 'form-control');
+      $description->setAttribute('class', 'materialize-textarea');
 
       $submit = new Element\Submit('submit');
       $submit->setValue('Modifier le Pokémon');
       $submit->setAttribute('class', 'btn btn-primary');
 
       $type1 = new Element\Select('type1');
-      $type1->setLabel('Type 1');
-      $type1->setAttribute('class', 'form-control');
       $type1->setValueOptions($allTypes);
 
       $type2 = new Element\Select('type2');
-      $type2->setLabel('Type 2');
-      $type2->setAttribute('class', 'form-control');
       $type2->setValueOptions($allTypes);
 
       $evolution = new Element\Number('evolution');
-      $evolution->setLabel('ID Evolution precedente');
       $evolution->setAttribute('class', 'form-control');
 
       $this->add($id);
